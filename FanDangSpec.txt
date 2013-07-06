@@ -1,0 +1,52 @@
+rails new test_example -d postgresql -T
+rm public/index.html
+
+edit database.yml and Gemfile:
+
+**************
+gem 'pg'
+group :development do
+  gem 'pry-rails'
+  gem 'pry-debugger'
+  gem 'binding_of_caller'
+  gem 'better_errors'
+end
+
+gem 'rspec-rails', :group => [:development, :test]
+
+# Gems used only for assets and not required
+# in production environments by default.
+group :assets do
+  gem 'sass-rails',   '~> 3.2.3'
+  #gem 'coffee-rails', '~> 3.2.1'
+***********
+
+bundle install
+rake db:create
+rails generate rspec:install
+cd spec
+mkdir models
+mkdir routing
+--> write tests <---
+rails generate model user name age:integer country favorite_color bio:text
+rake db:migrate
+
+rake
+
+
+Users can log into FanDang to:
+  See current movie listings
+  Select a seat for a particular show
+  purchase tickets online
+  See all their ticket purchases
+  Once a ticket is purchased then those seats
+  are no longer available for purchase
+  Clicking on the details of a movie a
+  user can view the movie trailer and reviews.
+
+  Models:
+
+  User - name, password, link to movie thru tickets, has one ticket
+  Tickets - price, type , time,  seat location link to one movie, linked to one user
+  Movie - name, synopsis, director, link to many tickets
+  Session - handles login into the application
