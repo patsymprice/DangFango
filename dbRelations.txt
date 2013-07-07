@@ -1,0 +1,75 @@
+class Studio < ActiveRecord::Base
+  attr_accessible :name
+  has_many :movies
+end
+
+class Movie < ActiveRecord::Base
+  belongs_to :studio
+  attr_accessible :ratings, :synopsis, :title, :studio_id
+  has_many :characters
+  has_many :actors, :through => :characters
+end
+
+class Character < ActiveRecord::Base
+  belongs_to :actor
+  belongs_to :movie
+  attr_accessible :name, :actor_id, :movie_id
+end
+
+class Actor < ActiveRecord::Base
+  attr_accessible :name
+  has_many :characters
+  has_many :movies, :through => :characters
+end
+
+class CreateStudios < ActiveRecord::Migration
+  def change
+    create_table :studios do |t|
+      t.string :name
+
+      t.timestamps
+    end
+  end
+end
+
+
+class CreateMovies < ActiveRecord::Migration
+  def change
+    create_table :movies do |t|
+      t.string :title
+      t.text :synopsis
+      t.string :ratings
+      t.references :studio
+
+      t.timestamps
+    end
+    add_index :movies, :studio_id
+  end
+end
+
+class CreateCharacters < ActiveRecord::Migration
+  def change
+    create_table :characters do |t|
+      t.string :name
+      t.references :actor
+      t.references :movie
+
+      t.timestamps
+    end
+    add_index :characters, :actor_id
+    add_index :characters, :movie_id
+  end
+end
+
+
+class CreateActors < ActiveRecord::Migration
+  def change
+    create_table :actors do |t|
+      t.string :name
+
+      t.timestamps
+    end
+  end
+end
+
+

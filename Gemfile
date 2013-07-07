@@ -6,11 +6,13 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg'
+gem 'bcrypt-ruby'
 group :development do
   gem 'pry-rails'
   gem 'pry-debugger'
   gem 'binding_of_caller'
   gem 'better_errors'
+  gem 'shoulda-matchers'
 end
 
 gem 'rspec-rails', :group => [:development, :test]

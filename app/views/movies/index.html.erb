@@ -1,0 +1,28 @@
+<h1>Listing movies</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Url</th>
+    <th>Synopsis</th>
+    <th>Rating</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @movies.each do |movie| %>
+  <tr>
+    <td><%= movie.name %></td>
+    <td>7:00 PM  9:00 PM</td>
+    <td><%= movie.synopsis %></td>
+    <td><%= movie.rating %></td>
+    <td><%= link_to 'Show', movie %></td>
+
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Movie', new_movie_path %>

@@ -1,18 +1,23 @@
 require 'spec_helper'
 
-describe User do
+describe Ticket do
 
-  it "signs up" do
-    user  = User.new(:ame => "Patsy", :age => 44, :country => "USA", :bio => "Person.here")
-    user.save
+  it "can make a movie" do
+    ticket  = Ticket.new(
+      :name => "Time out",
+      :synopsis => "Little boy is caught sneaking cookies before dinner and has to sit in the corner.",
+      :url => "http://www.youtube.com/watch?v=k8IXG-8Bzv0",
+      :rating => "4.5"
+      )
+    ticket.save
 
-    users = User.all
-    expect(users).to include(user)
+    tickets = Ticket.all
+    expect(tickets).to include(ticket)
   end
 
   it "signs up without a bio" do
-    user = User.new(:ame => "Baylee", :age => 2, :country => "USA")
-    expect(user.valid?).to be_false
+    ticket = Ticket.new(:ame => "Baylee", :age => 2, :country => "USA")
+    expect(ticket.valid?).to be_false
   end
 
 end
