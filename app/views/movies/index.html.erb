@@ -1,28 +1,50 @@
-<h1>Listing movies</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Url</th>
-    <th>Synopsis</th>
-    <th>Rating</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
-<% @movies.each do |movie| %>
-  <tr>
-    <td><%= movie.name %></td>
-    <td>7:00 PM  9:00 PM</td>
-    <td><%= movie.synopsis %></td>
-    <td><%= movie.rating %></td>
-    <td><%= link_to 'Show', movie %></td>
+<div class="container">
+     <h1>Welcome to the DangFango Luxury Theatre</h1>
+      <div class="module twocol">
+            <div id="tabs">
+                       <ul>
+                         <li><a href="#fragment-1"><span>Gallery</span></a></li>
+                         <li><a href="#fragment-2"><span>Dinner and Snacks</span></a></li>
+                         <li><a href="#fragment-3"><span>Drinks</span></a></li>
+                       </ul>
+                       <div id="fragment-1">
+                             <p><img src="assets/mal.png"></p>
+                       </div>
+                       <div id="fragment-2">
+                        This will be food menu
+                       </div>
+                       <div id="fragment-3">
+                         This will be  drink menu
+                       </div>
+             </div>
 
-  </tr>
-<% end %>
-</table>
 
-<br />
+           <div>
+              <table>
+                <tr>
+                  <th>Name</th>
+                  <th>Synopsis</th>
+                  <th>Rating</th>
+                  <th>Showtimes</th>
+                  <th></th>
+                  <th></th>
+                </tr>
 
-<%= link_to 'New Movie', new_movie_path %>
+              <% @movies.each do |movie| %>
+                <tr>
+                  <td><%= movie.name %></td>
+                  <td><%= movie.synopsis %></td>
+                  <td><%= movie.rating %></td>
+                  <td>7:00 PM  9:00 PM</td>
+                  <td><%= link_to 'Show', movie %></td>
+
+                </tr>
+                <% end %>
+              </table>
+           </div>
+      </div>
+</div>
+
+

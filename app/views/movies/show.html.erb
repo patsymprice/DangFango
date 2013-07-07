@@ -6,13 +6,16 @@
 </p>
 
 <p>
-  <b>Url:</b>
-
-  <%= @movie.url %>
 
   <iframe width="560" height="315" src="<%= @movie.url %>"
   frameborder="0" allowfullscreen></iframe>
 
+</p>
+
+<p>
+  <% @movie.tickets.each do |ticket| %>
+  <%=  ticket %>
+  <% end %>
 </p>
 
 <p>
@@ -26,5 +29,4 @@
 </p>
 
 
-<%= link_to 'Edit', edit_movie_path(@movie) %> |
 <%= link_to 'Back', movies_path %>
