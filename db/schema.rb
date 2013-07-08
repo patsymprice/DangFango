@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130707063802) do
+ActiveRecord::Schema.define(:version => 20130708021518) do
 
   create_table "movies", :force => true do |t|
     t.string   "name"
@@ -28,9 +28,10 @@ ActiveRecord::Schema.define(:version => 20130707063802) do
     t.decimal  "price"
     t.integer  "movie_id"
     t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
     t.string   "showtime"
+    t.boolean  "sold",       :default => false
   end
 
   add_index "tickets", ["movie_id"], :name => "index_tickets_on_movie_id"

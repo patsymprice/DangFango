@@ -1,25 +1,24 @@
 <p id="notice"><%= notice %></p>
 
+
+<p>
+  <b>Movie:</b>
+  <%= Movie.find(@ticket.movie_id).name %>
+</p>
+
+<p>
+  <b>Showtime:</b>
+  <%= @ticket.showtime.to_s + ":00 PM" %>
+</p>
 <p>
   <b>Location:</b>
-  <%= @ticket.location %>
+  <%= "Table " + @ticket.location %><br>
+  Seating for four moviegoers.
 </p>
 
 <p>
   <b>Price:</b>
-  <%= @ticket.price %>
+  <%= "$" + @ticket.price.to_s %>
 </p>
 
-<p>
-  <b>Movie:</b>
-  <%= @ticket.movie_id %>
-</p>
-
-<p>
-  <b>User:</b>
-  <%= @ticket.user_id %>
-</p>
-
-
-<%= link_to 'Edit', edit_ticket_path(@ticket) %> |
 <%= link_to 'Back', tickets_path %>

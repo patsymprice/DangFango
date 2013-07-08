@@ -7,6 +7,7 @@ gem 'rails', '3.2.13'
 
 gem 'pg'
 gem 'bcrypt-ruby'
+gem 'annotate'
 group :development do
   gem 'pry-rails'
   gem 'pry-debugger'

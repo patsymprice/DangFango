@@ -1,8 +1,10 @@
 
 
 <div class="container">
+
      <h1>Welcome to the DangFango Luxury Theatre</h1>
-      <div class="module twocol">
+
+      <div class="module twocol"  id="home_page" >
             <div id="tabs">
                        <ul>
                          <li><a href="#fragment-1"><span>Gallery</span></a></li>
@@ -10,39 +12,37 @@
                          <li><a href="#fragment-3"><span>Drinks</span></a></li>
                        </ul>
                        <div id="fragment-1">
-                             <p><img src="assets/mal.png"></p>
+                             <p><img src="assets/seating.jpg">
+                              Welcome to the luxury dining and movie experience. Order a beverage and a meal and we will deliver it to your table. Enjoy the show.
+                             </p>
                        </div>
                        <div id="fragment-2">
-                        This will be food menu
+                        <p><img src="assets/FoodMenu.png"></p>
                        </div>
                        <div id="fragment-3">
-                         This will be  drink menu
+                         <img src="assets/DrinkMenu.png"></p>
                        </div>
              </div>
 
 
            <div>
-              <table>
-                <tr>
-                  <th>Name</th>
-                  <th>Synopsis</th>
-                  <th>Rating</th>
-                  <th>Showtimes</th>
-                  <th></th>
-                  <th></th>
-                </tr>
 
-              <% @movies.each do |movie| %>
-                <tr>
-                  <td><%= movie.name %></td>
-                  <td><%= movie.synopsis %></td>
-                  <td><%= movie.rating %></td>
-                  <td>7:00 PM  9:00 PM</td>
-                  <td><%= link_to 'Show', movie %></td>
+            <h3>Today's Showings</h3>
 
-                </tr>
-                <% end %>
-              </table>
+               <% @movies.each do |movie| %>
+
+
+                  <p class="movie"><%= movie.name + "  " %><%= link_to 'Movie Trailers', movie %></p>
+                  <p><%= movie.synopsis %></p>
+                  <p>Rating: <%= movie.rating.to_s + " out of 10" %></p>
+                  <p>
+                      <%= link_to '7:00 PM Showing', tickets_path %>
+                      <%= link_to '9:00 PM Showing', tickets_path %>
+                  </p>
+
+
+              <% end %>
+
            </div>
       </div>
 </div>

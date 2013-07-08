@@ -3,28 +3,37 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .container {
-  width: 800px;
+  width: 900px;
 }
 h1 {
   height: 50px;
+  padding: 20px 0;
   text-align: center;
-  background: green;
+  background: aqua;
+  border-radius: 20px;
+  box-shadow: 10px 10px 10px rgba(0,0,0,0.25);
 }
+
 
 .twocol {
    overflow:hidden;
+   border-radius: 20px;
  }
 
  .twocol > div:first-child {
-   width:400px;
-   height: 400px;
-   float: left;
-   background: gold;
- }
+  width:400px;
+  height: 500px;
+  float: left;
+  }
 
  .twocol > div:last-child {
-   width: 390px;
-   height: 410px;
+   width: 440px;
+   height: 510px;
    float: right;
-   background: blue;
+ }
+
+
+ .movie {
+    text-size:15px;
+    font-weight:bold;
  }

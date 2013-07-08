@@ -1,29 +1,38 @@
-<h1>Listing tickets</h1>
+<h1>Available Tickets</h1>
 
-<table>
-  <tr>
-    <th>Location</th>
-    <th>Price</th>
-    <th>Movie</th>
-    <th>User</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @tickets.each do |ticket| %>
-  <tr>
-    <td><%= ticket.location %></td>
-    <td><%= ticket.price %></td>
-    <td><%= ticket.movie_id %></td>
-    <td><%= ticket.user_id %></td>
-    <td><%= link_to 'Show', ticket %></td>
-    <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
-    <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Ticket', new_ticket_path %>
+<div class="seating">
+    <div>
+            <table>
+              <tr>
+                <th>Movie</th>
+                <th>Table</th>
+                <th>Price</th>
+                <th>Show Time</th>
+                <th></th>
+              </tr>
+              <% @tickets.each do |ticket| %>
+                  <tr>
+                    <td><%= Movie.find(ticket.movie_id).name %></td>
+                    <td><%= ticket.location %></td>
+                    <td><%= ticket.price %></td>
+                    <td><%= ticket.showtime + ":00 PM " %></td>
+                    <td><%= ticket.user_id %></td>
+                    <td><%= link_to 'Purchase', ticket %></td>
+                  </tr>
+              <% end %>
+            </table>
+      </div>
+    <div>
+    <div class="module grid">
+      <p> Seating Chart </p>
+        <div id="one" class="table">A1</div>
+        <div id="two" class="table">A2</div>
+        <div id="three" class="table">A3</div>
+        <div id="four"class="table">A4</div>
+        <div id ="five"class="table">B1</div>
+        <div id ="six"class="table">B2</div>
+        <div id ="seven"class="table">B3</div>
+        <div id ="eight"class="table">B4</di>
+   </div>
+  </div>
+</div>

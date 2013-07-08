@@ -65,4 +65,6 @@ Users can log into FanDang to:
   Movies In Minutes - Twilight - http://www.youtube.com/watch?v=goix7jFXD9Q
   NigaHiga
 
-
+  <% @movie.tickets.each do |ticket| %>
+  <%= ticket.location %>
+  <% end %>

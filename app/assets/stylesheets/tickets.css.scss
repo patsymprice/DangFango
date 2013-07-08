@@ -1,3 +1,26 @@
 // Place all the styles related to the Tickets controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.table {
+    overflow:hidden;
+  }
+
+.table {
+  background-color:green;
+  border: 3px solid black;
+  display:block;
+  width: 100px;
+  height: 100px;
+  float: left;
+}
+
+.grid {
+     overflow:hidden;
+   }
+
+.grid > div {
+     width: 100px;
+     float: left;
+   }
+
